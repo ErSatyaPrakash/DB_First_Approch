@@ -1,0 +1,52 @@
+﻿@model IEnumerable<DB_First_Approch.Models.tbl_student>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 class="text-center">Index</h2>
+@Html.Raw(TempData["InsertMsg"])
+
+<p>
+    @Html.ActionLink("Create New", "Create",null, new { style = "text-decoration:none; background-color:darkblue;padding:10px;border-radius:5px; color:white;" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gender)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Age)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Standard)
+        </th>
+        <th colspan="3">Action</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Gender)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Age)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Standard)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) ||
+           
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>
